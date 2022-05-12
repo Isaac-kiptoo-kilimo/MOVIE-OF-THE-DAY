@@ -1,15 +1,11 @@
-import os
 
-
-
-# from distutils.debug import DEBUG
 import os
 
 
 class Config:
 
     MOVIE_API_BASE_URL = 'https://api.themoviedb.org/3/movie/{}?api_key={}'
-    MOVIE_API_KEY = 'd1ed07dbb3ddbc6087f773f3d9e18092'
+    MOVIE_API_KEY = '969509fb19ee305da27532300d83a5ae'
     SECRET_KEY = os.environ.get('SECRET_KEY')
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL')
@@ -26,16 +22,17 @@ class Config:
 
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:isaac@localhost/watchlist'
+    # SQLALCHEMY_DATABASE_URI ='postgresql+psycopg2://moringa:isaac@localhost/watchlist'
+    pass
     DEBUG = False
 
 
 class TestConfig(Config):
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:isaac@localhost/watchlist_test'
-
+    
 
 class DevConfig(Config):
-    # SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:isaac@localhost/watchlist'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:isaac@localhost/watchlist'
     DEBUG = True
 
 
