@@ -1,3 +1,5 @@
 {% block content %}
-
+{% for movie in movies %}
+<li>{{movie.poster}}</li>
+{% endfor %}
 {% endblock %}

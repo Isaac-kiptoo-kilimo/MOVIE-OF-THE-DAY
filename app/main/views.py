@@ -5,5 +5,5 @@ from ..request import get_movies
 @main.route('/')
 @main.route('/home')
 def index():
-    movies = get_movies()
+    movies = get_movies("popular")
     return render_template('index.html',movies=movies)
