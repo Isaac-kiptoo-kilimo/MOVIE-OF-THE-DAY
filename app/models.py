@@ -36,6 +36,7 @@ class User(UserMixin,db.Model):
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255))
     reviews = db.relationship('Review',backref = 'user',lazy = "dynamic")
+    categories = db.relationship('Category',backref = 'user',lazy = "dynamic")
 
     @property
     def password(self):
@@ -68,7 +69,7 @@ class Role(db.Model):
 def load_user(user_id):
     return User.query.get(int(user_id))
 
-class Review(db.Model):
+class Category(db.Model):
 
     __tablename__ = 'reviews'
 
@@ -80,11 +81,11 @@ class Review(db.Model):
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
-    def save_review(self):
+    def save_category(self):
         db.session.add(self)
         db.session.commit()
 
     @classmethod
-    def get_reviews(cls,id):
-        reviews = Review.query.filter_by(movie_id=id).all()
-        return reviews
+    def get_categories(cls,id):
+        categories = Category.query.filter_by(movie_id=id).all()
+        return categories

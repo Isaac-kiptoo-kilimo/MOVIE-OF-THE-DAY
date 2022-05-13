@@ -1,0 +1,3 @@
+Hello {{user.username}}
+Welcome to Movie of the Day
+Below is the link to movie which we recommend you watch.It is in accordance to your taste.Enjoy the movie of the day.
