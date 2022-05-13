@@ -1,5 +1,20 @@
+{% extends 'base.html' %}
 {% block content %}
-{% for movie in movies %}
-<li>{{movie.poster}}</li>
-{% endfor %}
+
+<div class="container">
+    <div class="row">
+        {% for movie in movies %}
+        <div class="col-md-2 movie_day">
+            <ul>
+             <img src="{{ movie.poster }}" class="img-fluid"  alt="{{ movie.title }} poster" class="img-responsive">
+             <li class="text-center">
+                 <a href="/movie/{{movie.id}}">
+                     {{ movie.title|truncate(10) }}</a>
+             </li>
+            </ul>
+         </div>
+         {% endfor %}
+    </div>
+</div>
+
 {% endblock %}

@@ -2,7 +2,7 @@ from unicodedata import category
 from flask import render_template,url_for,redirect,flash
 from . import main
 from .forms import RegistrationForm,LoginForm,PitchForm
-from .models import Pitch, User,Category
+from models import Pitch, User,Category
 from app import db
 
 
