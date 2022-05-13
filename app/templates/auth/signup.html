@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="register-form">
+<form method="POST"  class="mx-4 mt-4 ">
+    {{ form.hidden_tag()}}
+<fieldset >
+    <legend>Register Account</legend>
+    <div class="form-group col-4">
+        {{form.username.label(class= "form-control-label")}}
+        {{form.username(class='form-control',placeholder='username')}} <br>
+        {{form.email.label(class= "form-control-label")}}
+        {{form.email(class='form-control',placeholder='email')}} <br>
+        {{form.password.label(class= "form-control-label")}}
+        {{form.password(class='form-control',placeholder='password')}} <br>
+        {{form.confirm_password(class='form-control',placeholder='confirm password')}} <br>
+
+        {{ form.submit(class='form-control')}}
+
+    </div>
+</fieldset>
+</form>
+</div>
+
+
+{% endblock %}
