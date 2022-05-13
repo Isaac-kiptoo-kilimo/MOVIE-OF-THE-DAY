@@ -1,14 +1,12 @@
 from unicodedata import category
 from flask import render_template,url_for,redirect,flash
-from . import main
+from . import auth
 from .forms import RegistrationForm,LoginForm,PitchForm
 from models import Pitch, User,Category
 from app import db
 
 
-
-
-@main.route('/register',methods=['GET','POST'])
+@auth.route('/signup.html',methods=['GET','POST'])
 def register():
     form = RegistrationForm()
     user_exist=User.query.filter_by(email=form.email.data).first() 
@@ -21,9 +19,8 @@ def register():
         db.session.add(user)
         db.session.commit()
         
-        flash('Yaaaay! Thanks for registering!')
+        flash('Yaaaay! Thanks for signing up!')
 
-        return redirect(url_for('main.login'))
-    flash('Username is taken')
+        return redirect(url_for('auth.login'))
     print(form.username.data,form.email.data,form.password.data,form.confirm_password.data)
-    return render_template('register.html',title='register',form=form)
+    return render_template('signup.html',title='register',form=form)
